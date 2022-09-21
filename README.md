@@ -28,4 +28,4 @@ Run on terminal in correct directory to start `npm start` the development server
 - Conditional Rendering
 
 ## Live on Netlify!
-[Breaking Bad](ogulcan-breaking-bad.netlify.app)
+[Breaking Bad](https://www.ogulcan-breaking-bad.netlify.app)
