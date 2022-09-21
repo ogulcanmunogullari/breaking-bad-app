@@ -33,13 +33,13 @@ function CharacterInfo() {
         <h1>{error}</h1>
       ) : (
         <>
-          <main className="container mx-auto">
-            <h1 className="text-center py-2 md:py-5 text-3xl sm:text-4xl md:text-5xl">
+          <main className="container mx-auto text-white ">
+            <h1 className="text-center py-2 md:py-5 text-2xl sm:text-4xl md:text-5xl">
               {character.portrayed} - {character.name}
             </h1>
-            <div className="p-5 active:p-1 active:my-4">
+            <div className="px-10 py-3 active:px-4">
               <button
-                className="py-5 w-full font-semibold rounded-xl shadow-4xl active:ring active:ring-indigo-300 bg-teal-300 hover:bg-purple-500 transition ease-in-out duration-300"
+                className="py-3 w-full font-semibold rounded-xl shadow-4xl active:ring active:ring-indigo-300 bg-teal-300 hover:bg-purple-500 transition ease-in-out duration-300"
                 type="button"
                 onClick={() => setSpoiler(!spoiler)}>
                 {spoiler ? "Hide" : "Show"} Spoiler
@@ -54,29 +54,25 @@ function CharacterInfo() {
                   alt={character.name}
                 />
               </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-gray-100 md:col-span-2 lg:col-span-3">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-gray-800 md:col-span-2 lg:col-span-3">
                 <div>
-                  <h1 className="p-2 bg-red-700 capitalize text-white">show</h1>
+                  <h1 className="p-2 bg-red-700 capitalize ">show</h1>
                   <p className="p-2"> {character.category} </p>
                 </div>
                 <div>
-                  <h1 className="p-2 bg-red-700 capitalize text-white">Jobs</h1>
+                  <h1 className="p-2 bg-red-700 capitalize ">Jobs</h1>
                   <p className={`p-2 ${!spoiler && "text-red-700"}`}>
                     {spoiler ? character.occupation?.join(`, `) : `Spoiler`}
                   </p>
                 </div>
                 <div>
-                  <h1 className="p-2 bg-red-700 capitalize text-white">
-                    nickname
-                  </h1>
+                  <h1 className="p-2 bg-red-700 capitalize ">nickname</h1>
                   <p className={`p-2 ${!spoiler && "text-red-700"}`}>
                     {spoiler ? character.nickname : `Spoiler`}
                   </p>
                 </div>
                 <div>
-                  <h1 className="p-2 bg-red-700 capitalize text-white">
-                    Seasons
-                  </h1>
+                  <h1 className="p-2 bg-red-700 capitalize ">Seasons</h1>
                   <p className={`p-2 ${!spoiler && "text-red-700"}`}>
                     {spoiler ? character.appearance?.join(`, `) : "Spoler"}
                   </p>
@@ -100,7 +96,7 @@ function CharacterInfo() {
                   <h1 className="p-2 bg-red-700 capitalize text-white">
                     Quotes
                   </h1>
-                  <p className="p-2 text-blue-700"> Show Quotes... </p>
+                  <p className="p-2 text-blue-300"> Show Quotes... </p>
                 </Link>
               </div>
             </div>

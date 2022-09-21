@@ -1,7 +1,8 @@
 import React, { useEffect } from "react"
-import { useParams, useNavigate, Link } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { getCharacterQuotes } from "../redux/slicers/quotesSlice"
+import Quote from "../components/Quote"
 import Loading from "../components/Loading"
 
 function CharacterQuotes() {
@@ -20,9 +21,7 @@ function CharacterQuotes() {
       {pending === false ? (
         characterQuotes.length > 0 ? (
           characterQuotes.map((quote) => (
-            <div className="bg-red-200" key={quote.quote_id}>
-              {quote.quote}
-            </div>
+            <Quote key={quote.quote_id} text={quote.quote} />
           ))
         ) : (
           <button

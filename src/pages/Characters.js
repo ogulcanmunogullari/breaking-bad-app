@@ -9,6 +9,7 @@ import Error from "../components/Error"
 
 import PageButton from "../components/PageButton"
 import RenderCharacters from "../components/RenderCharacters"
+import RenderPageNumbers from "../components/RenderPageNumbers"
 
 function Characters() {
   const [pageNumber, setPageNumber] = useState()
@@ -34,62 +35,21 @@ function Characters() {
   useEffect(() => {
     dispatch(getCharacters())
   }, [dispatch])
-  const renderCharacters = () => {
-    if (pending) {
-      return <Loading />
-    }
-    if (error) {
-      return <Error error={error} />
-    }
-    if (characters.length > 0) {
-      return (
-        <RenderCharacters
-          renderPageNumbers={renderPageNumbers}
-          characters={characters}
-        />
-      )
-    }
-  }
-  const buttonHandler = (page) => {
-    dispatch(changePage(page))
-    dispatch(getCharacters(page))
-  }
-  const renderPageNumbers = () => {
-    return (
-      <div className="flex justify-center gap-5 my-10">
-        {page !== 0 && (
-          <>
-            <button onClick={() => buttonHandler(page - 1)}> - </button>
-            <PageButton page={page} pages={0} />
-          </>
-        )}
 
-        {page < pageNumber ? (
-          <>
-            {page > 2 && <div>...</div>}
-            {page > 1 && <PageButton page={page} pages={page - 1} />}
-            {page !== pageNumber && <PageButton page={page} pages={page} />}
-            {page + 1 < pageNumber && (
-              <PageButton page={page} pages={page + 1} />
-            )}
-            {page === 0 && <PageButton page={page} pages={page + 2} />}
-            {page < pageNumber - 2 && <div>...</div>}
-          </>
-        ) : (
-          <>
-            <div>...</div>
-            <PageButton page={page} pages={page - 2} />
-            <PageButton page={page} pages={page - 1} />
-          </>
+  return (
+    <div className="container relative mx-auto flex flex-col-reverse sm:flex-col sm:justify-between">
+      <main>
+        {pending && <Loading />}
+        {error && <Error error={error} />}
+        {characters.length > 0 && !error && (
+          <RenderCharacters characters={characters} />
         )}
-        <PageButton page={page} pages={pageNumber} />
-        {page !== pageNumber && (
-          <button onClick={() => buttonHandler(page + 1)}>+</button>
-        )}
-      </div>
-    )
-  }
-  return <div className="container mx-auto mt-2">{renderCharacters()}</div>
+      </main>
+      <footer className="sticky top-0 bg-gray-800 sm:relative sm:mt-14">
+        <RenderPageNumbers page={page} pageNumber={pageNumber} />
+      </footer>
+    </div>
+  )
 }
 
 export default Characters
