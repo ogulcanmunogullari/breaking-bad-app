@@ -11,6 +11,8 @@
 
 Delete the `package-lock.json` file and run on terminal in correct directory to install `npm install` the dependencies.
 
+Add .env file `REACT_APP_API_BASE_ENDPOINT=https://www.breakingbadapi.com/api`
+
 ## Usage
 
 Run on terminal in correct directory to start `npm start` the development server.
