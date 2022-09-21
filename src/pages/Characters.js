@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { useSelector, useDispatch } from "react-redux"
-import { getCharacters, changePage } from "../redux/slicers/charactersSlice"
+import { getCharacters } from "../redux/slicers/charactersSlice"
 
 //Components
 import Loading from "../components/Loading"
 import Error from "../components/Error"
 
-import PageButton from "../components/PageButton"
 import RenderCharacters from "../components/RenderCharacters"
 import RenderPageNumbers from "../components/RenderPageNumbers"
 
